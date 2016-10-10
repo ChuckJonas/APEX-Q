@@ -12,7 +12,7 @@ For Promises without Callouts, Inner-Classes and Non-Serializable types can be u
 public class EncryptionPromise{
 
     public EncryptionPromise(Account acc){
-        Blob exampleIv = Blob.valueOf('abc');
+        Blob exampleIv = Blob.valueOf('Example of IV123');
         Blob key = Crypto.generateAesKey(128);
 
         new Promise(new EncryptionAction(exampleIv, key))
@@ -53,8 +53,11 @@ public class EncryptionPromise{
         }
 
         public void done(Object input){
-            acc.AccountNumber = (String) input;
-            update acc;
+            if(input != null){
+                acc.AccountNumber = (String) input;
+                System.debug(input);
+                update acc;
+            }
         }
     }
 
@@ -68,8 +71,8 @@ public class EncryptionPromise{
         //failed! set account number to null
         public void error(Exception e){
             acc.AccountNumber = null;
-            update acc;
             System.debug(e);
+            update acc;
         }
     }
 }
