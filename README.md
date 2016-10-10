@@ -66,7 +66,7 @@ public class EncryptionPromise{
         }
 
         //failed! set account number to null
-        public void error(Type t, Exception e){
+        public void error(Exception e){
             acc.AccountNumber = null;
             update acc;
             System.debug(e);
@@ -79,6 +79,7 @@ The most common use case for a pattern like this would probably be to chain mult
 
 1. All interfaced Promise implementations (Action, Error, Done) MUST be Top Level classes.  Using Inner Classes will cause failures.
 2. All implemented classes MUST be JSON serializable.  Non-Serailizable types will cause a failure!
+3. Resolve MUST return a `CalloutPromise.TypedSerializable`
 
 To Specify a Promise with callouts, just use `CalloutPromise` in place of `Promise`:
 
@@ -95,6 +96,21 @@ public class EncryptionPromise{
         .error(new ErrorHandler(acc))
         .done(new DoneHandler(acc))
         .execute(Blob.valueOf(acc.AccountNumber));
+    }
+}
+
+public with sharing class EncryptionAction implements Promise.Action{
+    private Blob vector;
+    private Blob key;
+    public EncryptionAction(Blob vector, Blob key){
+        this.vector = vector;
+        this.key = key;
+    }
+
+    public CalloutPromise.TypedSerializable resolve(Object input){
+        Blob inputBlob = (Blob) input;
+        return new CalloutPromise.TypedSerializable(Crypto.encrypt('AES128', key, vector, inputBlob), 
+                                                    Blob.class);
     }
 }
 ```
