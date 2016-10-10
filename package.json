@@ -1,0 +1,26 @@
+{
+  "name": "apex-promises",
+  "version": "1.0.0",
+  "description": "A Salesforce Promise library",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node -e \"require('sfdc-pkg-postinstall').install()\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChuckJonas/apex-promises.git"
+  },
+  "keywords": [
+    "sfdc-package"
+  ],
+  "author": "Charles Jonas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChuckJonas/apex-promises/issues"
+  },
+  "homepage": "https://github.com/ChuckJonas/apex-promises#readme",
+  "dependencies": {
+    "sfdc-pkg-postinstall": "^1.0.0"
+  }
+}
