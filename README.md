@@ -132,7 +132,7 @@ public class EnycriptAccountNumber{
         .execute(Blob.valueOf(acc.AccountNumber));
     }
 }
-
+//TOP LEVEL CLASS!
 public with sharing class EncryptionAction implements Q.Action{
     private Blob vector;
     private Blob key;
@@ -147,6 +147,7 @@ public with sharing class EncryptionAction implements Q.Action{
                                                     Blob.class);
     }
 }
+//... Rest of implementations.  (Also top level)
 ```
 
 ## Disclaimer
