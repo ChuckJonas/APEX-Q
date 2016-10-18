@@ -77,6 +77,11 @@ public class EncryptionPromise{
     }
 }
 ```
+
+**Note:**
+* The return object of each Resolve function is passed into the next
+* The Done handler will be called even if there is an error
+
 ### With Callouts
 The most common use case for a pattern like this would probably be to chain multiple Callout actions.  Unforuntely, due to the lack of proper reflection in Salesforce, the implementation here is less than ideal and rules must be followed:
 
