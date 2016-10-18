@@ -1,20 +1,22 @@
-public abstract class BasePromise {
+//Author: Charlie Jonas
+// Base Class for Apex "Q"
+public abstract class QBase {
 
     //handlers
-    public Promise.Error errorHandler;
-    public Promise.Done doneHandler;
+    protected Q.Error errorHandler;
+    protected Q.Done doneHandler;
 
     //stores data to pass from one promise to the next
-    public Object heap; 
+    public Object heap;
 
-    public abstract BasePromise then(Promise.Action action);
+    public abstract QBase then(Q.Action action);
 
     /**
      * Sets the error (Catch) handler.  Can only have 1
      * @param  errorHandler The handler to use
      * @return              this (for chaining)
      */
-    public BasePromise error(Promise.Error errorHandler){
+    public QBase error(Q.Error errorHandler){
         this.errorHandler = errorHandler;
         return this;
     }
@@ -24,7 +26,7 @@ public abstract class BasePromise {
      * @param  doneHandler The handler to use
      * @return             this (for chaining)
      */
-    public BasePromise done(Promise.Done doneHandler){
+    public QBase done(Q.Done doneHandler){
         this.doneHandler = doneHandler;
         return this;
     }
