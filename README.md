@@ -150,6 +150,9 @@ public with sharing class EncryptionAction implements Q.Action{
 //... Rest of implementations.  (Also top level)
 ```
 
+## Installation
+I've included [NPM build scripts that leverage DMC](https://github.com/kevinohara80/sfdc-pkg-postinstall) to make for easily deployment.  This is an experimental idea, but there are advantages of this over an unmanaged package.
+
 ## Disclaimer
 ***IMPLEMENT AT YOUR OWN RISK.***
 I have not use this in an actual implementation.  Has not been throughly tested.  Needs Unit Testing
