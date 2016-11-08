@@ -156,7 +156,7 @@ public with sharing class EncryptionAction implements Q.Action{
 
 1. `cd [workspace` (should contain `src`)
 
-2.`npm install apex-q` (this will also create a `node_modules` folder)
+2. `npm install apex-q` (this will also create a `node_modules` folder)
 
 3. use your favorite IDE to deploy classes
 
