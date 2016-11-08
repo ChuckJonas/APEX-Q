@@ -151,7 +151,10 @@ public with sharing class EncryptionAction implements Q.Action{
 ```
 
 ## Installation
-I've included [NPM build scripts that leverage DMC](https://github.com/kevinohara80/sfdc-pkg-postinstall) to make for easily deployment.  This is an experimental idea, but there are advantages of this over an unmanaged package.
+
+1. `cd [workspace` (should contain `src`)
+2.`npm install apex-q` (this will also create a `node_modules` folder)
+3. use your favorite IDE to deploy classes
 
 ## Disclaimer
 ***IMPLEMENT AT YOUR OWN RISK.***
