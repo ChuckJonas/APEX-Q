@@ -111,7 +111,9 @@ public class EnycriptAccountNumber{
 The most common use case for a pattern like this would probably be to chain multiple Callout actions.  Unforuntely, due to the lack of proper reflection in Salesforce, the implementation here is less than ideal and rules must be followed:
 
 1. All interfaced Promise implementations (Action, Error, Done) MUST be Top Level classes.  Using Inner Classes will cause failures.
+
 2. All implemented classes MUST be JSON serializable.  Non-Serailizable types will cause a failure!
+
 3. Resolve MUST return a `QFuture.TypedSerializable`
 
 To Specify a Promise with callouts, just use `QFuture` in place of `Q`:
@@ -153,7 +155,9 @@ public with sharing class EncryptionAction implements Q.Action{
 ## Installation
 
 1. `cd [workspace` (should contain `src`)
+
 2.`npm install apex-q` (this will also create a `node_modules` folder)
+
 3. use your favorite IDE to deploy classes
 
 ## Disclaimer
